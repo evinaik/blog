@@ -6,7 +6,7 @@ import {
   mapEdgesToNodes,
 } from "../lib/helpers";
 import BlogPostPreviewList from "../components/blog-post-preview-list";
-import Container from "../components/container";
+import { Container } from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -34,7 +34,7 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query BlogPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -64,7 +64,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const BlogPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -89,7 +89,7 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout>
+    <React.Fragment>
       <SEO
         title={site.title}
         description={site.description}
@@ -105,8 +105,8 @@ const IndexPage = (props) => {
           />
         )}
       </Container>
-    </Layout>
+    </React.Fragment>
   );
 };
 
-export default IndexPage;
+export default BlogPage;

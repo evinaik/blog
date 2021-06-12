@@ -32,7 +32,6 @@
   padding: var(--small-padding);
   text-decoration: none;
   text-align: center;
-  box-sizing: border-box;
 }
 
 .iconWrapper {

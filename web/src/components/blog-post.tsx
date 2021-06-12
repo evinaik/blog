@@ -1,21 +1,16 @@
-import * as styles from "./blog-post.module.css";
 import { differenceInDays, formatDistance, format } from "date-fns";
 import AuthorList from "./author-list";
-import Container from "./container";
+import { Container } from "./container";
 import PortableText from "./portableText";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
+const styles: any = {};
+
 function BlogPost(props) {
-  const {
-    _rawBody,
-    authors,
-    categories,
-    title,
-    mainImage,
-    publishedAt,
-  } = props;
+  const { _rawBody, authors, categories, title, mainImage, publishedAt } =
+    props;
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (

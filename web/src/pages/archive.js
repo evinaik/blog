@@ -1,5 +1,5 @@
 import BlogPostPreviewGrid from "../components/blog-post-preview-grid";
-import Container from "../components/container";
+import { Container } from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Layout from "../containers/layout";
 import React from "react";
@@ -48,7 +48,7 @@ const ArchivePage = (props) => {
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
 
   return (
-    <Layout>
+    <>
       <SEO title="Archive" />
       <Container>
         <h1 className={responsiveTitle1}>Archive</h1>
@@ -56,7 +56,7 @@ const ArchivePage = (props) => {
           <BlogPostPreviewGrid nodes={postNodes} />
         )}
       </Container>
-    </Layout>
+    </>
   );
 };
 
